@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vuetify'],
   },
+
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
@@ -16,8 +17,31 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    //...
+    '@nuxtjs/i18n'
   ],
+  i18n: {
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en.js'
+      },
+      {
+        code: 'zh',
+        iso: 'zh-TW',
+        file: 'zh.js'
+      }
+    ],
+    defaultLocale: 'zh',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
+  },
+
   vite: {
     vue: {
       template: {
@@ -25,6 +49,6 @@ export default defineNuxtConfig({
       },
     },
   },
-},
 
-)
+
+})

@@ -1,11 +1,16 @@
 <template lang="pug">
 v-container 
-    v-row 
-        v-col 
-            h1 HELLOO
+    h1 hi
+
 </template>
+
+<script setup>
+
+</script>
+
 
 <style lang="sass">
 h1
     color : red
 </style>
+
