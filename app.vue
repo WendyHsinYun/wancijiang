@@ -1,11 +1,7 @@
 <template lang="pug">
-Header
-Menu
-slot
+NuxtLayout
+  NuxtPage
 </template>
-
-<script setup>
-</script>
 
 <style lang="sass">
 </style>

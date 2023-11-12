@@ -1,7 +1,6 @@
 <template lang="pug">
 v-container 
-    h1 hi
-
+    h1 HOME page
 </template>
 
 <script setup>
@@ -10,7 +9,5 @@ v-container
 
 
 <style lang="sass">
-h1
-    color : red
 </style>
 

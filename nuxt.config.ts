@@ -17,29 +17,26 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@ant-design-vue/nuxt',
   ],
   i18n: {
-    strategy: 'prefix_except_default',
+    strategy: 'prefix',
+    defaultLocale: 'en',
     langDir: 'locales',
     locales: [
       {
         code: 'en',
         iso: 'en-US',
-        file: 'en.js'
+        file: 'en-US.json'
       },
       {
         code: 'zh',
         iso: 'zh-TW',
-        file: 'zh.js'
+        file: 'zh-TW.json'
       }
     ],
-    defaultLocale: 'zh',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
+    
   },
 
   vite: {

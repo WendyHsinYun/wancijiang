@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@ant-design-vue/nuxt": "^1.1.2",
+    "@mdi/font": "^7.3.67",
     "@nuxt/devtools": "latest",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
     "nuxt": "^3.8.0",
@@ -20,7 +22,6 @@
     "vuetify": "^3.3.23"
   },
   "dependencies": {
-    "@mdi/font": "^7.3.67",
     "sass": "^1.69.5"
   }
 }

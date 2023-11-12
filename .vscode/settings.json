@@ -1,8 +1,4 @@
 {
-  // 编辑器保存格式化
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.eslint": true
-  },
+
 }
 
