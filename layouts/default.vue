@@ -1,11 +1,10 @@
 <template lang="pug">
 Header
 Menu
-slot
+v-container.w-75.px-15(color='background')
+  slot
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
-<style lang="sass">
-</style>
+<style lang="sass"></style>

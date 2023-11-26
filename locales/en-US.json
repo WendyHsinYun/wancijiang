@@ -1,9 +1,26 @@
 {
-  "welcome": "Welcome",
-  "backHome": "Back Home",
-  "about": {
-    "title": "About Us",
-    "description": "This is About Page"
-  }
-}
+  "mainMenu": {
+    "latest": "Latest Project",
+    "previous": "Previous Work",
+    "research": "Research Projects",
+    "about": "About Me"
+  },
+  "subMenu": {
+    "previous": {
+      "first": "Why Are Migrant Workers Always Live-Streaming",
+      "second": "Confessions of B-Drinkers: The Therapy that Comes with a Cocktail",
+      "third": " In Pursuit of the Celestial: A Personal Ethnographic Journey into Taiwan’s Fairy Selection Ritual",
+      "fourth": "Previous Works"
+    },
+    "research": {
+      "first": "2016 Bangka Island, Indonesia",
+      "second": "2017 Guanmiao, Tainan",
+      "third": "2018 Singapore",
+      "fourth": "2019 Java, Indonesia",
+      "fifth": "2023 Java, Indonesia",
+      "sixth": "2023 Netherlands"
+    }
+  },
 
+  "index": "《尋找真愛》是一個記錄印尼移動者之戀愛生命的寫作計畫。\n延續我的第一個作品《移工怎麼都在直播》對台灣印尼移工社群的書寫，"
+}

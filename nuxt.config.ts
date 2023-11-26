@@ -1,8 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
+
+  ssr: false,
 
   css: ['~/assets/sass/main.sass'],
 
@@ -10,33 +12,55 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
+  runtimeConfig: {
+    // Private keys are only available on the server
+    apiSecret: '123',
+
+    // Public keys that are exposed to the client
+    public: {
+      apiBase: '/',
+    },
+  },
+
   modules: [
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // @ts-expect-error
-        config.plugins.push(vuetify({ autoImport: true }))
-      })
+        config.plugins.push(vuetify({ autoImport: true }));
+      });
     },
     '@nuxtjs/i18n',
     '@ant-design-vue/nuxt',
+    [
+      '@nuxtjs/google-fonts',
+      {
+        families: {
+          'Noto+Sans+TC': true,
+          Montserrat: true,
+        },
+      },
+    ],
   ],
   i18n: {
     strategy: 'prefix',
     defaultLocale: 'en',
     langDir: 'locales',
+    lazy: true,
     locales: [
       {
         code: 'en',
         iso: 'en-US',
-        file: 'en-US.json'
+        file: 'en-US.json',
       },
       {
         code: 'zh',
         iso: 'zh-TW',
-        file: 'zh-TW.json'
-      }
+        file: 'zh-TW.json',
+      },
     ],
-    
+    detectBrowserLanguage: {
+      redirectOn: 'root',
+    },
   },
 
   vite: {
@@ -46,6 +70,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
-
-})
+});
