@@ -1,48 +1,90 @@
 <template lang="pug">
-v-row.d-flex.align-end(style='height: 100px')
-  v-col(cols='12')
+v-row.d-flex.align-end.justify-center(style='height: 100px')
+  v-col(cols='10')
     .menuContainer.text-center.h-100.d-flex.align-center
       NuxtLink.menuItem.mainMenuItem(
         v-for='(option, key, index) in menuOptions' 
-        :key='key'
         :to="localePath(option.path)"
-        @click='selectMenu(key)'
+        :key='key'
+        @click='selectMenu(option)'
       ) {{ $t(`${option.mainMenu}`) }}
 
 v-row.d-flex.align-center.justify-center
-  v-col(cols='11')
+  v-col(cols='10')
     v-divider
 
 v-expand-transition
-  v-row.d-flex(no-gutters style='height: 100px')
-    v-col(cols='12')
-      .subMenuContainer.d-flex.align-center.justify-space-around
+  v-row.d-flex.justify-center(no-gutters style='height: 130px')
+    v-col(cols='10')
+      div(v-if="subMenu === 'previous'").previous.d-flex.align-center.justify-space-around
         NuxtLink.menuItem.text-center.py-5.subMenuItem( 
-          v-for="(subMenuItem, subMenuIndex) in selectedMenu" 
-          :key="subMenuIndex"
-        ) {{ $t( subMenuItem.title ) }}
+            v-for="(option, key, index) in previousMenu" 
+            :to="localePath(option.path)"
+            :key="key"
+          ) {{ $t( `${option.title}`) }}
+
+      div(v-if="subMenu === 'research'").research.d-flex.align-center.justify-space-around
+        NuxtLink.menuItem.text-center.py-5.subMenuItem( 
+          v-for="(option, key, index) in researchMenu" 
+          :to="localePath(option.path)"
+          :key="key"
+        ) {{ $t( `${option.title}`) }}
 
 </template>
 
 <script setup>
 const localePath = useLocalePath();
 
-const selected = ref('');
-const selectedMenu = ref([]);
+const mainMenu = ref('latest');
 
-const selectMenu = (key) => {
-  selected.value = key;
+const subMenu = ref('')
+
+const selectMenu = (option) => {
+  subMenu.value = option.name
 };
 
-watch(
-  () => selected.value,
-  (newValue) => {
-    selectedMenu.value = menuOptions[selected.value].subMenu;
+const menuOptions = [
+  {
+    name: 'latest',
+    mainMenu: 'mainMenu.latest',
+    path: 'latest',
   },
-);
+  {
+    name: 'previous',
+    mainMenu: 'mainMenu.previous',
+    path: '/previous/streaming',
+  },
+  {
+    name: 'research',
+    mainMenu: 'mainMenu.research',
+    path: '/research/2016Indonesia',
+  },
+  {
+    name: 'about',
+    mainMenu: 'mainMenu.about',
+    path: 'about',
+  },
+]
+
+const previousMenu = [
+  { title: 'subMenu.previous.streaming', path: '/previous/streaming' },
+  { title: 'subMenu.previous.drinker', path: '/previous/drinker' },
+  { title: 'subMenu.previous.celestial', path: '/previous/celestial' },
+  { title: 'subMenu.previous.workList', path: '/previous/workList' },
+]
+
+const researchMenu = [
+  { title: 'subMenu.research.2016Indonesia', path: '/research/2016Indonesia' },
+  { title: 'subMenu.research.2017Tainan', path: '/research/2017Tainan' },
+  { title: 'subMenu.research.2018Singapore', path: '/research/2018Singapore' },
+  { title: 'subMenu.research.2019Indonesia', path: '/research/2019Indonesia' },
+  { title: 'subMenu.research.2023Indonesia', path: '/research/2023Indonesia' },
+  { title: 'subMenu.research.2023Netherlands', path: '/research/2023Netherlands' },
+]
+
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .menuContainer
   color: #0F0F0F
   flex-direction: row
@@ -57,6 +99,11 @@ watch(
   width: 100%
 
 .subMenuItem
-  font-size: 14px
-  width: 280px
+  font-size: 12px
+  width: 200px
+
+a
+  text-decoration: none
+  color: $primaryText
+  border-radius: 20%
 </style>

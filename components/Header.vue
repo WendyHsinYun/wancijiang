@@ -24,14 +24,12 @@ const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
 </script>
 
-<style lang="sass">
-.logoContainer
-  border: 1px solid black
-
+<style lang="sass" scoped>
 .logo
   font-size: 24px
   font-style: normal
   font-weight: 400
+  line-height: 40px
 
 .switchLang
   letter-spacing: 3px
@@ -42,7 +40,7 @@ a:hover
 
 a
   text-decoration: none
-  color: black
+  color: $primaryText
   border-radius: 20%
 
 .v-icon--size-default

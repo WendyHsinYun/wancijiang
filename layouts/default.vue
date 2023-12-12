@@ -1,7 +1,7 @@
 <template lang="pug">
 Header
 Menu
-v-container.w-75.px-15(color='background')
+v-container(color='background' style="width: 60%")
   slot
 </template>
 

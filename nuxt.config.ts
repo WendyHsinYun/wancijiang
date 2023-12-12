@@ -13,10 +13,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // Private keys are only available on the server
-    apiSecret: '123',
-
-    // Public keys that are exposed to the client
+    apiSecret: '',
     public: {
       apiBase: '/',
     },
@@ -59,8 +56,10 @@ export default defineNuxtConfig({
       },
     ],
     detectBrowserLanguage: {
-      redirectOn: 'root',
-    },
+      useCookie: false,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
+    }
   },
 
   vite: {
@@ -69,5 +68,13 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: '@use "@/assets/sass/color.sass" as *\n'
+        }
+      }
+    }
   },
+
 });

@@ -1,19 +1,59 @@
 <template lang="pug">
-v-card(flat color='background')
-    v-card-title.text-h5 近期計畫：《尋找真愛》
-    v-card-subtitle.text-h6.mt-10 2023-2026
-    div(v-html='formattedArticle').mt-10
+div(style="height:25vh")
+
+v-card(flat color='primary')
+  v-row.justify-center
+    v-col(cols='6')
+      div(v-html='typewriterText').content.my-10
+
 </template>
 
 <script setup>
-const { t } = useI18n();
-const translatedIndex = t('index');
-const indexText = t('index');
+definePageMeta({
+  layout: 'entry'
+})
 
-// 创建一个计算属性来将 '\n' 替换为 '<br>'
-const formattedArticle = computed(() => {
-  return indexText.replace(/\n/g, '<br>');
+const formattedEntry = formatContent('entry.content')
+
+const typewriterText = ref('');
+const typingDelay = 60;
+let index = 0;
+const tagRegex = /<[^>]*>/; // 正則表達式來匹配完整的HTML標籤
+
+function typeWriter() {
+  let visibleText = formattedEntry.value.slice(0, index);
+  let nextChar = formattedEntry.value.charAt(index);
+
+  // 檢查下一個字符是否開始了一個新的標籤
+  if (nextChar === '<') {
+    // 找到完整的標籤並立即添加
+    const tagMatch = formattedEntry.value.slice(index).match(tagRegex);
+    if (tagMatch) {
+      visibleText += tagMatch[0];
+      index += tagMatch[0].length;
+    }
+  } else {
+    visibleText += nextChar;
+    index++;
+  }
+
+  typewriterText.value = visibleText;
+
+  if (index < formattedEntry.value.length) {
+    setTimeout(typeWriter, typingDelay);
+  }
+}
+
+onMounted(() => {
+  typeWriter();
 });
+
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.content
+  text-align: center
+  color: $secondaryText
+  line-height: 32px
+  font-size: 16px
+</style>
