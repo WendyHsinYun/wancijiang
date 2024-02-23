@@ -166,9 +166,16 @@ zh:
   z-index: 50
   padding: 0
   background-color: rgba(249, 250, 250, 0.9)
-  backdrop-filter: blur(5px) !important
-  -webkit-backdrop-filter: blur(5px) !important
-  
+
+.v-container::before
+  content: ''
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(249, 250, 250, 0.7)
+  z-index: -1
 
 .v-card
   background-color: transparent

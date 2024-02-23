@@ -25,6 +25,7 @@ v-row(no-gutters).article.px-10.px-sm-14.mx-auto.mt-3
 <script setup>
 import { mdiChevronTripleUp } from '@mdi/js';
 const expand = ref(false)
+const width = ref(window.innerWidth)
 
 const onClose = () => {
   expand.value = false
@@ -36,8 +37,6 @@ const toTop = () => {
     behavior: 'smooth'
   });
 };
-
-const width = ref(window.innerWidth)
 
 const updateWidth = () => {
   width.value = window.innerWidth

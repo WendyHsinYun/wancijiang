@@ -85,8 +85,17 @@ watch(()=> props.expandProps,
   top: 0px
   z-index: 50
   background-color: rgba(249, 250, 250, 0.9)
-  backdrop-filter: blur(5px)
-  -webkit-backdrop-filter: blur(5px) !important
+
+.header::before
+  content: ''
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background-color: rgba(249, 250, 250, 0.7)
+  z-index: -1
+  
 .switchLang
   letter-spacing: 3px
   word-break: keep-all
