@@ -1,12 +1,11 @@
 <template lang="pug">
 v-card.px-3(flat color='background').header.d-flex.align-center.my-5
-  v-row.d-flex.align-center.px-16
+  v-row.d-flex.align-center.px-10
     v-col(cols='auto')
       v-row(no-gutters style='cursor: pointer' @click='router.push("/latest")').ps-10.ps-lg-14.ps-xl-14
         v-col(cols='12')
-          span.text-h6.text-md-h5 Wanci Jiang
-        v-col(cols='12')
-          span.text-md-h5 江婉琦
+          p.text-h6.text-md-h5 Wanci Jiang
+          p.text-md-h5 江婉琦
         
     v-spacer
 

@@ -1,5 +1,5 @@
 <template lang="pug">
-v-row.align-end.justify-center.px-10(style='height: 75px')
+v-row(style='height: 75px').align-end.justify-center.px-2
   v-col(cols='10').d-flex.align-center.justify-space-between
     NuxtLink(
       v-for='(option, key) in mainMenuOptions' 
@@ -10,10 +10,10 @@ v-row.align-end.justify-center.px-10(style='height: 75px')
       span(:class="option.title === activeMainItem ? 'activeItem' : ''").mainMenu.text-body-2.text-lg-body-1 {{ t(`${option.mainMenu}`) }}
 
 v-row.align-center.justify-center
-  v-col(cols='10')
+  v-col(cols='12').d-flex.justify-center
     div.divider
 
-v-row.justify-center.mt-5.px-10(no-gutters style='height: 100px')
+v-row.justify-center.mt-5(no-gutters style='height: 100px')
   v-col(cols='10')
     div(v-if="subMenu === 'previous'").d-flex.align-center.justify-space-between
       NuxtLink( 
@@ -22,7 +22,7 @@ v-row.justify-center.mt-5.px-10(no-gutters style='height: 100px')
         :key="key"
         @click='selectSubMenu(option)'
       ) 
-        div(style='max-width:165px').subMenu.text-center
+        div(style='max-width: 210px').subMenu.text-center
           span(:class="option.title === activeSubItem ? 'activeItem' : ''").text-wrap.text-lg-body-2.text-caption {{ t( `${option.title}`) }}
 
     div(v-if="subMenu === 'research'").d-flex.align-center.justify-space-between
@@ -32,7 +32,7 @@ v-row.justify-center.mt-5.px-10(no-gutters style='height: 100px')
         :key="key"
         @click='selectSubMenu(option)'
       ) 
-        div(style='max-width:110px').subMenu.text-center
+        div(style='max-width: 130px').subMenu.text-center
           span(:class="option.title === activeSubItem ? 'activeItem' : ''").text-wrap.text-lg-body-2.text-caption {{ t( `${option.title}`) }}
 </template>
 
@@ -156,7 +156,6 @@ a
 .activeItem
   color: $primary
   font-weight: 600
-  text-wrap: wrap
 
 .mainMenu:hover, .subMenu:hover
   color: $primary
@@ -166,6 +165,7 @@ a
 
 .divider
   height: 1px
+  width: 90vw
   border-bottom-color: rgba(128, 128, 128)
   border-bottom-style: solid
   border-bottom-width: 1px
