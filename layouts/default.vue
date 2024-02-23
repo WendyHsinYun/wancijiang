@@ -62,6 +62,4 @@ window.addEventListener('resize', updateWidth)
 @media screen and (max-width: 960px) and (min-width: 0px)
   .article
     top: 150px
-
-
 </style>
