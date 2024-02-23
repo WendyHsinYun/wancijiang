@@ -7,36 +7,40 @@ Article
     | {{ $t('articles.drinker.publishedDate') }}
 
   template(v-slot:customContent)
-    v-col.d-flex.child-flex(v-for="n in 1" :key="n" cols="12")
-      v-img(
-        :src="`/images/drinker/drinker_${n}.webp`"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        cover)
-    em.mt-2.mb-4.text-medium-emphasis.text-body-2.text-sm-body-1 {{ t('caption') }}
+    v-col.d-flex.child-flex(cols="12")
+      div
+        NuxtImg(
+          :src="'drinker/drinker.webp'"
+          alt="Confessions of B-Drinkers"
+          sizes='xs:80vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
+
+    em.mt-2.mb-4.text-medium-emphasis.text-body-1 {{ t('caption') }}
 
     v-col(cols='auto').my-2
-      div.text-body-2.text-sm-body-1(v-html='formattedContent1')
+      div.text-body-1(v-html='formattedContent1')
 
     v-col(cols='auto').my-3
-      span.text-subtitle-1.text-sm-h6.font-weight-bold {{ t('subTitle1') }}
+      span.text-h6.font-weight-bold {{ t('subTitle1') }}
 
-    v-col(cols='auto').my-2.text-body-2.text-sm-body-1
+    v-col(cols='auto').my-2.text-body-1
       div(v-html='formattedContent2')
 
     v-col(cols='auto').my-3
-      span.text-subtitle-1.text-sm-h6.font-weight-bold {{ t('subTitle2') }}
+      span.text-h6.font-weight-bold {{ t('subTitle2') }}
 
-    v-col(cols='auto').my-2.text-body-2.text-sm-body-1
+    v-col(cols='auto').my-2.text-body-1
       div(v-html='formattedContent3')
 
     v-col(cols='auto').my-2
-      a.text-body-2.text-sm-body-1(target="_blank" href="https://opinion.cw.com.tw/blog/profile/537/article/11577") {{ t('link') }}
+      a.text-body-1(target="_blank" href="https://opinion.cw.com.tw/blog/profile/537/article/11577") {{ t('link') }}
 </template>
 
 <i18n lang="yaml">
 en:
-  caption: Yi Yi reckons that at the bar, she's not just pouring drinks but also filling gaps in folks' lives – and her own. Think of it as therapy, but with cocktails on the side. 
+  caption: Yi Yi reckons that at the bar, she's not just pouring drinks but also filling gaps in folks' lives – and her own. Think of it as therapy but with cocktails on the side. 
   subTitle1: Stereotypes protect me sometimes
   subTitle2: There is satisfaction in the job as well
   link: The original article was published in "CommonWealth Magazine Independent Review."

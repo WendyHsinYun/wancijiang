@@ -8,18 +8,17 @@ Article
 
   template(v-slot:customContent)
     v-col(cols='auto').my-10
-      div.text-body-2.text-sm-body-1(v-html='formattedArticle')
+      div.text-body-1(v-html='formattedArticle')
 
-    v-col.d-flex.child-flex(v-for="n in 4" :key="n" :cols="imageCols")
-      v-img.mx-1.my-1(
-        :src="`/images/latest/latest_${n}.webp`"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        class="bg-grey-lighten-2"
-        cover)
-        template(v-slot:placeholder='')
-          v-row.fill-height.ma-0(align='center' justify='center')
-            v-progress-circular(indeterminate='' color='grey-lighten-5')
+    v-col.d-flex.flex-wrap.justify-center(cols='12')
+      div.my-2.my-sm-1.mx-sm-2(v-for="n in 4" :key="n")
+        NuxtImg(
+          :src="`latest/latest-${n}.webp`"
+          alt="latest publication"
+          sizes='xs:80vw md:35vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
 
 </template>
 

@@ -5,10 +5,10 @@ Article
 
   template(v-slot:customContent)
     v-col(cols='auto').my-2
-      div.my-1(v-html='formattedContent')
+      div.my-1.text-body-1(v-html='formattedContent')
 
     v-col.d-flex.flex-column(cols="12")
-      span.my-2.text-h6(v-html='formattedSubTitle')
+      span.my-3.text-h6(v-html='formattedSubTitle')
 
     v-col.d-flex.flex-column(cols="12")
       ul
@@ -77,5 +77,5 @@ li
     font-size: 14px
     position: absolute
     left: 0px
-    top: 1px
+    top: 2px
 </style>
