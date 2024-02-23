@@ -13,7 +13,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: false },
 
-  ssr: true,
+  ssr: false, // keep
 
   css: ['~/assets/sass/main.sass'],
 
@@ -36,11 +36,17 @@ export default defineNuxtConfig({
       });
     },
     '@nuxtjs/i18n',
+    '@nuxt/image',
   ],
+  image: {
+    provider: 'cloudinary',
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/dqq8y9ud4/image/upload/f_auto,q_auto/v1/wancijiang/'
+    },
+  },
   i18n: {
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
-    
     langDir: 'locales',
     lazy: true,
     locales: [

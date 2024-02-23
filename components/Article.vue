@@ -4,11 +4,11 @@ v-card.mx-auto.px-md-15(
   flat 
   color='background')
   v-row(no-gutters).py-3.mx-0.my-0
-    v-col(cols='12').text-subtitle-1.text-sm-h5.font-weight-bold
+    v-col(cols='12').text-h5.font-weight-bold
       slot(name="mainTitle")
 
   v-row(no-gutters).py-3.mx-0.my-0
-    v-col(cols='12').text-body-2.text-sm-subtitle-1
+    v-col(cols='12' style='font-size: 18px')
       slot(name="publishedDate")
 
   v-row(no-gutters).mx-0.my-0

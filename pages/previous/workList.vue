@@ -7,8 +7,8 @@ Article
     v-col.d-flex.flex-column(cols="12")
       ul
         li.my-2(v-for='article in articles' :key="article.date") 
-          span.text-body-2.text-sm-body-1 {{ article.date }} 
-          a.text-body-2.text-sm-body-1(target="_blank" href="article.link") {{ article.text }}
+          span.text-body-1 {{ article.date }} 
+          a.text-body-1(target="_blank" href="article.link") {{ article.text }}
           
 </template>
 
@@ -183,6 +183,6 @@ li
     font-size: 14px
     position: absolute
     left: 0
-    top: 0px
+    top: 3px
 
 </style>

@@ -8,58 +8,67 @@ Article
 
   template(v-slot:customContent)
     v-col.text-center.d-flex.flex-column(cols="12")
-      v-img(
-        src="/images/celestial/celestial_1.webp"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        class="bg-grey-lighten-2"
-        cover)
-      em.mt-2.mb-4.text-medium-emphasis.text-body-2.text-sm-body-1 {{ t('caption1') }}
+      div
+        NuxtImg(
+          :src="'celestial/celestial-1.webp'"
+          alt="In Pursuit of the Celestial"
+          sizes='xs:80vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
+
+      em.mt-2.mb-4.text-medium-emphasis.text-body-1 {{ t('caption1') }}
 
     v-col(cols='auto').my-2
-      div.text-body-2.text-sm-body-1(v-html='formattedContent1')
+      div.text-body-1(v-html='formattedContent1')
 
     v-col(cols='auto').my-3
-      span.text-subtitle-1.text-sm-h6.font-weight-bold {{ t('subTitle1') }}
+      span.text-h6.text-sm-h6.font-weight-bold {{ t('subTitle1') }}
 
     v-col(cols='auto').mt-2.mb-4
-      div.text-body-2.text-sm-body-1(v-html='formattedContent2')
+      div.text-body-1(v-html='formattedContent2')
 
     v-col.text-center.d-flex.flex-column(cols="12")
-      v-img(
-        src="/images/celestial/celestial_2.webp"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        class="bg-grey-lighten-2"
-        cover)
-      em.mt-2.mb-4.text-body-2.text-sm-body-1.text-medium-emphasis {{ t('caption2') }}
+      div
+        NuxtImg(
+          :src="'celestial/celestial-2.webp'"
+          alt="In Pursuit of the Celestial"
+          sizes='xs:80vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
+      em.mt-2.mb-4.text-body-1.text-medium-emphasis {{ t('caption2') }}
 
     v-col(cols='auto').mt-2.mb-4
-      div.text-body-2.text-sm-body-1(v-html='formattedContent3')    
+      div.text-body-1(v-html='formattedContent3')    
   
     v-col.text-center.d-flex.flex-column(cols="12")
-      v-img(
-        src="/images/celestial/celestial_3.webp"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        class="bg-grey-lighten-2"
-        cover)
-      em.mt-2.mb-4.text-body-2.text-sm-body-1.text-medium-emphasis {{ t('caption3') }}
+      div
+        NuxtImg(
+          :src="'celestial/celestial-3.webp'"
+          alt="In Pursuit of the Celestial"
+          sizes='xs:80vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
+      em.mt-2.mb-4.text-body-1.text-medium-emphasis {{ t('caption3') }}
 
     v-col(cols='auto').mt-2.mb-4
-      div.text-body-2.text-sm-body-1(v-html='formattedContent4')    
+      div.text-body-1(v-html='formattedContent4')    
 
     v-col.text-center.d-flex.flex-column(cols="12")
-      v-img(
-        src="/images/celestial/celestial_4.webp"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        class="bg-grey-lighten-2"
-        cover)
-      em.mt-2.mb-4.text-body-2.text-sm-body-1.text-medium-emphasis {{ t('caption4') }}
+      div
+        NuxtImg(
+          :src="'celestial/celestial-4.webp'"
+          alt="In Pursuit of the Celestial"
+          sizes='xs:80vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
+      em.mt-2.mb-4.text-body-1.text-medium-emphasis {{ t('caption4') }}
 
     v-col(cols='auto').mt-2.mb-4
-      div.text-body-2.text-sm-body-1(v-html='formattedContent5')  
+      div.text-body-1(v-html='formattedContent5')  
 
     .videoContainer
       iframe(
@@ -70,35 +79,37 @@ Article
         frameborder='10' 
         allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen='')
 
-    v-col(cols='auto').my-2
-      div.text-body-2.text-sm-body-1(v-html='formattedContent6')  
+    v-col(cols='auto').mt-4.mb-2
+      div.text-body-1(v-html='formattedContent6')  
 
     v-col(cols='auto').my-3
-      span.text-subtitle-1.text-sm-h6.font-weight-bold {{ t('subTitle2') }}
+      span.text-h6.text-sm-h6.font-weight-bold {{ t('subTitle2') }}
 
     v-col(cols='auto').my-2
-      div.text-body-2.text-sm-body-1(v-html='formattedContent7')  
+      div.text-body-1(v-html='formattedContent7')  
   
     v-col(cols='auto').my-3
-      span.text-subtitle-1.text-sm-h6.font-weight-bold {{ t('subTitle3') }}
+      span.text-h6.text-sm-h6.font-weight-bold {{ t('subTitle3') }}
 
     v-col(cols='auto').mt-2.mb-4
-      div.text-body-2.text-sm-body-1(v-html='formattedContent8')  
+      div.text-body-1(v-html='formattedContent8')  
 
     v-col.text-center.d-flex.flex-column(cols="12")
-      v-img(
-        src="/images/celestial/celestial_5.webp"
-        aspect-ratio="4/3"
-        alt="latest publication"
-        class="bg-grey-lighten-2"
-        cover)
-      em.mt-2.mb-4.text-body-2.text-sm-body-1.text-medium-emphasis {{ t('caption5') }}  
+      div
+        NuxtImg(
+          :src="'celestial/celestial-5.webp'"
+          alt="In Pursuit of the Celestial"
+          sizes='xs:80vw'
+          :modifiers="{ roundCorner: '6' }"
+          preload
+          placeholder)
+      em.mt-2.mb-4.text-body-1.text-medium-emphasis {{ t('caption5') }}  
 
     v-col(cols='auto').my-2
-      div.text-body-2.text-sm-body-1(v-html='formattedContent9')  
+      div.text-body-1(v-html='formattedContent9')  
 
     v-col(cols='auto').my-2
-      a.text-body-2.text-sm-body-1(target="_blank" href="https://opinion.cw.com.tw/blog/profile/52/article/7647") {{ t('link') }}
+      a.text-body-1(target="_blank" href="https://opinion.cw.com.tw/blog/profile/52/article/7647") {{ t('link') }}
 </template>
 
 
@@ -110,7 +121,7 @@ en:
   caption4: Schematic diagram of the selection venue for fairy and protocol officers.
   caption5: List of selected fairies 
   subTitle1: The Ritual:Being an Observer
-  subTitle2: Intention:An Inner Monologue as a Believer
+  subTitle2: 'Intention: An Inner Monologue as a Believer'
   subTitle3: Am I really the number one fairy?
   link: The original article was published in "CommonWealth Magazine Independent Review."
 

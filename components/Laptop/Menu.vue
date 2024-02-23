@@ -1,41 +1,39 @@
 <template lang="pug">
-v-row.align-end.justify-center(style='height: 75px')
-  v-col(cols='10').d-flex.align-center.justify-space-between.text-center.px-6
-    NuxtLink.menuItem(
+v-row.align-end.justify-center.px-10(style='height: 75px')
+  v-col(cols='10').d-flex.align-center.justify-space-between
+    NuxtLink(
       v-for='(option, key) in mainMenuOptions' 
       :to="localePath(option.path)"
       :key='key'
       @click='selectMainMenu(option)'
-      :class="option.title === activeMainItem ? 'activeItem' : ''"
     ) 
-      span.text-body-2.text-lg-body-1 {{ t(`${option.mainMenu}`) }}
+      span(:class="option.title === activeMainItem ? 'activeItem' : ''").mainMenu.text-body-2.text-lg-body-1 {{ t(`${option.mainMenu}`) }}
 
 v-row.align-center.justify-center
   v-col(cols='10')
-    v-divider
+    div.divider
 
-v-expand-transition
-  v-row.justify-center.d-none.d-md-flex(no-gutters style='height: 100px')
-    v-col(cols='10')
-      div(v-if="subMenu === 'previous'").d-flex.align-center.justify-space-between
-        NuxtLink.text-center.py-5.subMenuItem( 
-            v-for="(option, key) in previousMenu" 
-            :to="localePath(option.path)"
-            :key="key"
-            @click='selectSubMenu(option)'
-            :class="option.title === activeSubItem ? 'activeItem' : ''"
-          ) 
-          span.text-lg-body-2.text-caption {{ t( `${option.title}`) }}
+v-row.justify-center.mt-5.px-10(no-gutters style='height: 100px')
+  v-col(cols='10')
+    div(v-if="subMenu === 'previous'").d-flex.align-center.justify-space-between
+      NuxtLink( 
+        v-for="(option, key) in previousMenu" 
+        :to="localePath(option.path)"
+        :key="key"
+        @click='selectSubMenu(option)'
+      ) 
+        div(style='max-width:165px').subMenu.text-center
+          span(:class="option.title === activeSubItem ? 'activeItem' : ''").text-wrap.text-lg-body-2.text-caption {{ t( `${option.title}`) }}
 
-      div(v-if="subMenu === 'research'").d-flex.align-center.justify-space-between
-        NuxtLink.text-center.py-5.subMenuItem( 
-          v-for="(option, key) in researchMenu" 
-          :to="localePath(option.path)"
-          :key="key"
-          @click='selectSubMenu(option)'
-          :class="option.title === activeSubItem ? 'activeItem' : ''"
-        ) 
-          span.text-lg-body-2.text-caption {{ t( `${option.title}`) }}
+    div(v-if="subMenu === 'research'").d-flex.align-center.justify-space-between
+      NuxtLink( 
+        v-for="(option, key) in researchMenu" 
+        :to="localePath(option.path)"
+        :key="key"
+        @click='selectSubMenu(option)'
+      ) 
+        div(style='max-width:110px').subMenu.text-center
+          span(:class="option.title === activeSubItem ? 'activeItem' : ''").text-wrap.text-lg-body-2.text-caption {{ t( `${option.title}`) }}
 </template>
 
 <script setup>
@@ -148,30 +146,27 @@ zh:
 </i18n>
 
 <style lang="sass" scoped>
-.mainMenu
-  color: #0F0F0F
-  flex-direction: row
-
-.activeItem
-  color: #006064
-
-.subMenuContainer
-  color: #0F0F0F
-
-.menuItem
-  position: relative
-  text-decoration: none
-  cursor: pointer
-  min-width: 120px
-
-.subMenuItem
-  position: relative
-  text-decoration: none
-  cursor: pointer
-  width: 180px
-
 a
+  position: relative
   text-decoration: none
   color: $primaryText
   border-radius: 20%
+  cursor: pointer
+
+.activeItem
+  color: $primary
+  font-weight: 600
+  text-wrap: wrap
+
+.mainMenu:hover, .subMenu:hover
+  color: $primary
+
+.subMenuContainer
+  color: $primaryText
+
+.divider
+  height: 1px
+  border-bottom-color: rgba(128, 128, 128)
+  border-bottom-style: solid
+  border-bottom-width: 1px
 </style>

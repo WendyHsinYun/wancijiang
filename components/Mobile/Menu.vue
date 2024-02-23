@@ -38,7 +38,7 @@ v-container.menuContainer
           :value='item.name')
           template(v-slot:title)
             NuxtLink.nuxtLink(:to="localePath(item.path)" @click='onClick') 
-              p.text-caption.ps-2(style='color:rgba(0,0,0,0.8)') {{ t(item.name) }}
+              p.text-caption.ps-2(style='color:rgba(0, 0, 0, 0.8)') {{ t(item.name) }}
 
       v-divider.mx-7
       
@@ -51,14 +51,17 @@ v-container.menuContainer
         template(v-slot:title)
           v-row.justify-center
             v-col(cols='auto')
-              NuxtLink.icon(href="https://mail.google.com/mail/?view=cm&fs=1&to=p16028621@gmail.com" target="_blank")
-                v-icon(size='20' aria-hidden="false" ) mdi-email-outline
+              NuxtLink(href="https://mail.google.com/mail/?view=cm&fs=1&to=p16028621@gmail.com" target="_blank")
+                v-icon(:icon="mdiEmailOutline" size='20' aria-hidden="false")
+              
             v-col(cols='auto')
-              NuxtLink.icon(href="https://www.facebook.com/profile.php?id=100002080775488" target="_blank")
-                v-icon(size='20' aria-hidden="false") mdi-facebook
+              NuxtLink(href="https://www.facebook.com/profile.php?id=100002080775488" target="_blank")
+                IconFacebook
 </template>
 
 <script setup>
+import { mdiEmailOutline } from '@mdi/js';
+
 const { t, locale } = useI18n();
 const router = useRouter()
 
@@ -193,9 +196,8 @@ zh:
   align-items: center
   text-decoration: none
 
-.icon
+a
   text-decoration: none
   color: $primaryText
   border-radius: 20%
-
 </style>
