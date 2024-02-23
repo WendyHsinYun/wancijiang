@@ -3,9 +3,8 @@ v-row(no-gutters).header.d-flex.align-center.py-5.px-10.px-sm-14
   v-col(cols='auto')
     v-row(no-gutters style='cursor: pointer' @click='router.push("/latest")') 
       v-col(cols='12')
-        span.text-h6 Wanci Jiang
-      v-col(cols='12')
-        span.text-h6 江婉琦
+        p.text-h6 Wanci Jiang
+        p.text-h6 江婉琦
       
   v-spacer
 

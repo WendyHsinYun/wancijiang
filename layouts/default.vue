@@ -19,7 +19,7 @@ v-row(no-gutters).article.px-10.px-sm-14.mx-auto.mt-3
   v-col(cols='auto' @click='toTop' style='cursor: pointer').mb-10.mx-auto
     p(style='color:rgba(0, 0, 0, 0.5)').text-center
       v-icon(:icon="mdiChevronTripleUp")
-    p.mt-2.text-caption.text-line(style='color:rgba(0, 0, 0, 0.5)') To Top
+    p.mt-2.text-caption.text-line(style='color:rgba(0, 0, 0, 0.5)') Top
 </template>
 
 <script setup>

@@ -74,8 +74,8 @@ li
   &::before
     content: '•'
     color: $primaryText
-    font-size: 14px
+    font-size: 12px
     position: absolute
-    left: 0px
-    top: 2px
+    left: 8px
+    top: 4px
 </style>
