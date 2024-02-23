@@ -36,6 +36,18 @@ const toTop = () => {
     behavior: 'smooth'
   });
 };
+
+const width = ref(window.innerWidth)
+
+const updateWidth = () => {
+  width.value = window.innerWidth
+}
+
+const mobileMode = computed(() => {
+  return width.value < 960
+})
+
+window.addEventListener('resize', updateWidth)
 </script>
 
 <style lang="sass" scoped>
