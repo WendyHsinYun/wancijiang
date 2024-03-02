@@ -1,12 +1,12 @@
 <template lang="pug">
-LaptopHeader(v-if='!mobileMode')
+DesktopHeader(v-if='!mobileMode')
 MobileHeader(
   v-if='mobileMode' 
   @expand='expand = true' 
   @close='expand = false'
   :expandProps='expand')
 
-LaptopMenu(v-if='!mobileMode')
+DesktopMenu(v-if='!mobileMode')
 v-expand-transition
   MobileMenu(
     v-if='mobileMode && expand' 

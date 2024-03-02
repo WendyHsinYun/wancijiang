@@ -1,10 +1,10 @@
 <template lang="pug">
-
+DesktopEntry.d-none.d-md-flex 
+MobileEntry.d-flex.d-md-none
 </template>
 
 <script setup>
-navigateTo('/latest');
+definePageMeta({
+  layout: 'entry'
+})
 </script>
-
-<style lang="sass">
-</style>
